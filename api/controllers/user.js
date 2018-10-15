@@ -4,16 +4,23 @@ const Detail = require('../models').Detail;
 
 
 module.exports = {
-    find(req, res) {
+    findAllProjectsByUser(req, res) {
         return User
         .findAll({
-            include: [
-            { model: Project },
-            
-            ]
+            where: {
+                id: req.params.userId
+            },
+            include: [{
+                model: Project,
+                as: 'projects',
+                required: false,
+                through: {
+                    attributes: [],
+                }
+            }]
         })
-        .then(users => {
-            res.json(users)
+        .then(user => {
+            res.json(user)
         })
         .catch(error => res.status(400).send(error));
     }

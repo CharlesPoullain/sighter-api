@@ -7,13 +7,12 @@ module.exports = (app) => {
         message: 'Message test api'
     }));
 
-    app.post('/api/project', projectController.create);
+    // app.post('/api/project', projectController.create);
 
     app.get('/project', projectController.find);
+    app.post('/project', projectController.findByUser);
 
-    app.get('/details', detailController.find);
-
-    app.get('/user', userController.find);
-
+    //Get all Projects By User Id
+    app.get('/user/:userId', userController.findAllProjectsByUser);
 
 }
