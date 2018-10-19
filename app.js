@@ -19,13 +19,19 @@ models.sequelize.sync().then(function() {
     console.log('error in ddb: ', err)
 })
 
+app.all('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 require('./api/routes')(app);
 
 app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to the beginning of nothingness.',
 }));
 
-const port = parseInt(process.env.PORT, 10) || 3000;
+const port = parseInt(process.env.PORT, 10) || 8000;
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);

@@ -16,6 +16,7 @@ module.exports = {
         .then(project => res.status(201).send(project))
         .catch(error => res.status(400).send(error));
     },
+    //GET request
     find(req, res) {
         return Project
         .findAll({
@@ -31,12 +32,13 @@ module.exports = {
         })
         .catch(error => res.status(400).send(error));
     },
+    //POST request
     findByUser(req, res) {
     return Project
         .findAll({
-            // where: {
-            //     UserProjects.UserId: req.body.userId
-            // },
+            where: {
+                id: req.body.projectId
+            },
             include: [{
                     model: Detail,
                     as: 'detail'
