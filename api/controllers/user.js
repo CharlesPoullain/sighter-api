@@ -2,6 +2,9 @@ const User = require('../models').User;
 const Project = require('../models').Project;
 const Detail = require('../models').Detail;
 
+const Customer = require('../models').Customer;
+
+const UserProject = require('../models').UserProject;
 
 module.exports = {
     findAllProjectsByUser(req, res) {
@@ -34,10 +37,16 @@ module.exports = {
             include: [{
                 model: Project,
                 as: 'projects',
-                required: false,
-                through: {
-                    attributes: [],
-                }
+                include: [
+                    {
+                        model: Detail,
+                        as: 'detail'
+                    },
+                    {
+                        model: Customer,
+                        as: 'customer'
+                    },
+                ],
             }]
         })
         .then(user => {
