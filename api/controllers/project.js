@@ -7,6 +7,7 @@ const clientDependencies = require('../models').clientDependencies;
 const clientLanguages = require('../models').clientLanguages;
 const clientLibs = require('../models').clientLibs;
 const clientUi = require('../models').clientUi;
+const Note = require('../models').note;
 
 const serveurDependencies = require('../models').serveurDependencies;
 const serveurLanguages = require('../models').serveurLanguages;
@@ -81,6 +82,14 @@ module.exports = {
                 {
                     model: serveurLibs,
                     as: 'serveurLibs',
+                },
+                {
+                    model: Note,
+                    as: 'notes',
+                    required: false,
+                    through: {
+                        attributes: [],
+                    }
                 }
             ],
             

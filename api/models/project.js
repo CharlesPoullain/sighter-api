@@ -63,6 +63,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'projectId'
     });
 
+    Project.belongsToMany(models.note, {
+      through: models.projectNotes,
+      as: 'notes',
+      foreignKey: 'projectId'
+    });
+
   };
   return Project;
 };
