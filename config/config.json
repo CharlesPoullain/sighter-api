@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "sighter_user",
+    "username": "charlespoull_sighter_user",
     "password": "I]xtX6F-h_LB",
     "database": "charlespoull_sighter",
     "host": "charlespoullain.fr",
