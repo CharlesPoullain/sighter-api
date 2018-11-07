@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "sighter_dev",
-    "host": "127.0.0.1",
+    "username": "sighter_user",
+    "password": "I]xtX6F-h_LB",
+    "database": "charlespoull_sighter",
+    "host": "charlespoullain.fr",
     "dialect": "mysql"
   }
 }
