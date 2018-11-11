@@ -1,0 +1,11 @@
+nodejs:
+    image: node:alpine
+    working_dir: /home/app
+    restart: always
+    ports:
+      - "8000:8080"
+    volumes:
+      - ../nodejs:/home/app
+    command: ["npm", "start"]
+    extra_hosts:
+      - "api.sighter.fr:104.248.29.152

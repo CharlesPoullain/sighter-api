@@ -1,16 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const UserProjects = sequelize.define('UserProjects', {
+    const userProjects = sequelize.define('userProjects', {
         owner: DataTypes.INTEGER,
         status: DataTypes.STRING
     })
 
-    UserProjects.removeAttribute('id');
-    UserProjects.removeAttribute('createdAt');
-    UserProjects.removeAttribute('updatedAt');
+    userProjects.removeAttribute('id');
+    userProjects.removeAttribute('createdAt');
+    userProjects.removeAttribute('updatedAt');
 
-    UserProjects.associate = function (models) {
+    userProjects.associate = function (models) {
       
     };
-    return UserProjects;
+    return userProjects;
 };

@@ -1,14 +1,14 @@
-const User = require('../models').User;
+const Users = require('../models').users;
 const Project = require('../models').Project;
 const Detail = require('../models').Detail;
 
 const Customer = require('../models').Customer;
 
-const UserProject = require('../models').UserProject;
+const UserProject = require('../models').userProjects;
 
 module.exports = {
     findAllProjectsByUser(req, res) {
-        return User
+        return Users
         .findAll({
             where: {
                 id: req.params.userId
@@ -28,7 +28,7 @@ module.exports = {
         .catch(error => res.status(400).send(error));
     },
     login(req, res) {
-        return User
+        return Users
         .findOne({
             where: {
                 mail: req.body.mail,

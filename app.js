@@ -31,7 +31,7 @@ app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to the beginning of nothingness.',
 }));
 
-const port = parseInt(process.env.PORT, 10) || 8000;
+const port = parseInt(process.env.PORT, 10) || 8010;
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
